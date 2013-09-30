@@ -1,0 +1,29 @@
+encoding "utf8"; // указываем кодировку, в которой написан конфигурационный файл
+
+TTextMinerConfig {
+  Dictionary = "maindic.gzt"; // путь к корневому словарю
+  
+  PrettyOutput = "Pretty.html";
+
+  Input = {
+    //File = "../amendments/2a.txt";
+    Dir = "../amendments"; 
+  }
+
+  Articles = [
+    { Name = "Поправки" } // название статьи в корневом словаре,
+                          // которая содержит запускаемую грамматику
+  ]
+
+  Facts = [
+    { Name = "Amendment" }
+  ]
+
+  Output = {
+    File = "facts.txt";
+    Format = text;   
+    Mode = append;
+  }
+
+  PrintTree = "tree.txt";
+}

@@ -1,0 +1,5 @@
+import "base.proto";
+import "articles_base.proto";
+
+message parts_of_law : TAuxDicArticle {}
+message actions_on_law : TAuxDicArticle {}

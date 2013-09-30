@@ -1,0 +1,14 @@
+encoding "utf8";
+
+import "base.proto";
+import "articles_base.proto";
+
+import "facttypes.proto";
+
+import "parts_dict.gzt";
+import "actions_dict.gzt";
+
+TAuxDicArticle "Поправки"
+{
+   key = { "tomita:amends.cxx" type=CUSTOM }
+}

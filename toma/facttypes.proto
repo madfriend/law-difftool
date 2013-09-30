@@ -1,0 +1,11 @@
+import "base.proto";           // описание protobuf-типов
+import "facttypes_base.proto"; // описание protobuf-типа NFactType.TFact
+
+message Amendment: NFactType.TFact 
+{
+  optional string Law = 1;
+  optional string Article = 2;
+  optional string Action = 3;
+  optional string Amend = 4;
+  optional string AmendChng = 5;
+}
