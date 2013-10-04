@@ -7,6 +7,7 @@ import "facttypes.proto";
 
 import "parts_dict.gzt";
 import "actions_dict.gzt";
+import "nonstop.gzt";
 
 TAuxDicArticle "Поправки"
 {

@@ -1,3 +1,4 @@
+from pprint import pprint
 import sys
 
 with open(sys.argv[1]) as f:
@@ -31,4 +32,4 @@ with open(sys.argv[1]) as f:
     buffer.append(line)
 
 
-print(facts)
+pprint(facts)

@@ -24,10 +24,12 @@ Content -> 'следующий' 'содержание' Colon;
 WordContent -> 'слово' Content;
 Indent -> 'абзац' Nums;
 
+Article_spec -> 'статья' '303';
+
 //general
 S -> 'внести' 'в' Law interp (Amendment.Law::not_norm) LBracket;
-S -> 'внести' 'в' Article interp (Amendment.Article) Law interp (Amendment.Law::not_norm) LBracket;
-S -> 'внести' 'в' Article interp (Amendment.Article) Law interp (Amendment.Law::not_norm) LBracket AnyWord+ RBracket 'следующий' 'изменение' Colon Nums RBracket 'в' Article<gram='gen'> interp (+Amendment.Article) Changes; 
+S -> 'внести' 'в' Article_spec interp (Amendment.Article) Law interp (Amendment.Law::not_norm) LBracket;
+//S -> 'внести' 'в' Article interp (Amendment.Article) Law interp (Amendment.Law::not_norm) LBracket AnyWord+ RBracket 'следующий' 'изменение' Colon Nums RBracket 'в' Article<gram='gen'> interp (+Amendment.Article) Changes; 
 
 S -> 'в' Articles interp (Amendment.Article) Amend Actions interp (Amendment.Action::not_norm) WordContent AmendChng;
 S -> 'в' Articles interp (Amendment.Article) Actions interp (Amendment.Action::not_norm) Indent interp (Amendment.Amend::not_norm) Content AmendChng AnyWord+ interp (+Amendment.AmendChng::not_norm) Break;
