@@ -1,35 +1,17 @@
+import sys, helpers
 from pprint import pprint
-import sys
 
-with open(sys.argv[1]) as f:
-  buffer = []
-  facts = []
+current_law = ""
+for fact in helpers.extract_facts(sys.argv[1]):
+  if not current_law and 'Law' in fact:
+  	current_law = fact['Law']
+  elif 'Law' in fact:
+  	raise Exception('Demo version works only with one law in amendment')
 
-  collect_properties = False
-  for line in f:
-    line = line.strip()
+  if 'Action' not in fact:
+  	continue
 
-    if line == '{':
-      # print("Facts start")
-      facts.append({buffer.pop().strip(): "\n".join(buffer)})
-      collect_properties = True
-      continue
-
-    if line == '}':
-      # print("Facts stop")
-      collect_properties = False
-      buffer = []
-      continue
-    
-    if collect_properties:
-      # print("Collecting props")
-      # print(line.split('='))
-      name, value = map(lambda x: x.strip(), line.split('='))
-      facts[-1][name] = value
-      continue
-
-    # print("Lead")
-    buffer.append(line)
+  action = helpers.parse_action(fact['Action'])
+  action(**fact)
 
 
-pprint(facts)
